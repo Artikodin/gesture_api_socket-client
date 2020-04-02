@@ -1,0 +1,30 @@
+{
+  "name": "gesture_api_socket-client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Artikodin/gestiure_api_socket-client",
+  "author": "Artium Wasse",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "prettier": "2.0.2",
+    "rollup": "2.3.2",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-eslint": "7.0.0",
+    "rollup-plugin-livereload": "1.1.0",
+    "rollup-plugin-serve": "1.0.1",
+    "rollup-plugin-terser": "5.3.0"
+  },
+  "scripts": {
+    "start": "rm -rf dist && rollup --config --watch",
+    "eslint": "eslint"
+  },
+  "bin": {
+    "eslint": "./node_modules/.bin/eslint",
+    "npm-run-all": "./node_modules/.bin/npm-run-all"
+  }
+}
