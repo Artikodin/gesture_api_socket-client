@@ -13,6 +13,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": ["error", { "trailingComma": "none" }]
+    "prettier/prettier": ["error"]
   }
 }
