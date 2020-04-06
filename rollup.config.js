@@ -8,7 +8,9 @@ import resolve from '@rollup/plugin-node-resolve';
 // doc : https://github.com/rollup/plugins/tree/master/packages/commonjs
 import commonjs from '@rollup/plugin-commonjs';
 // doc : https://github.com/pearofducks/rollup-plugin-dev
-import dev from 'rollup-plugin-dev';
+
+import serve from 'rollup-plugin-server';
+import fs from 'fs';
 
 export default {
   input: 'src/index.js',
@@ -30,8 +32,18 @@ export default {
   plugins: [
     resolve({ browser: true }),
     commonjs(),
-    dev({ dirs: ['dist', 'public'], port: 3000 }),
+    serve({
+      contentBase: ['dist', 'public'],
+      port: 3000,
+      ssl: true,
+      ssl_key: fs.readFileSync('./certificat/server.key'),
+      ssl_cert: fs.readFileSync('./certificat/server.crt')
+    }),
     livereload({
+      https: {
+        key: fs.readFileSync('./certificat/server.key'),
+        cert: fs.readFileSync('./certificat/server.crt')
+      },
       watch: ['dist', 'public']
     }),
     babel({

@@ -5,8 +5,7 @@
   },
   "extends": ["eslint:recommended", "prettier", "plugin:prettier/recommended"],
   "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "Gyroscope": "readonly",
   },
   "parserOptions": {
     "ecmaVersion": 2018,

@@ -2342,6 +2342,11 @@ mime-types@^2.1.18, mime-types@~2.1.24:
   dependencies:
     mime-db "1.43.0"
 
+mime@^1.3.6:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+  integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+
 mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
@@ -2373,6 +2378,11 @@ mkdirp@^0.5.1:
   integrity sha512-iG9AK/dJLtJ0XNgTuDbSyNS3zECqDlAhnQW4CsNxBG3LQJBbHmRX1egw39DmtOdCAqY+dKXV+sgPgilNWUKMVw==
   dependencies:
     minimist "^1.2.5"
+
+motion-sensors-polyfill@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/motion-sensors-polyfill/-/motion-sensors-polyfill-0.3.1.tgz#f8dfe18614b719c75d8c466914a3931bfc8c8d1f"
+  integrity sha1-+N/hhhS3GcddjEZpFKOTG/yMjR8=
 
 ms@2.0.0:
   version "2.0.0"
@@ -2520,6 +2530,11 @@ only@~0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/only/-/only-0.0.2.tgz#2afde84d03e50b9a8edc444e30610a70295edfb4"
   integrity sha1-Kv3oTQPlC5qO3EROMGEKcCle37Q=
+
+opener@^1.4.3:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.1.tgz#6d2f0e77f1a0af0032aca716c2c1fbb8e7e8abed"
+  integrity sha512-goYSy5c2UXE4Ra1xixabeVh1guIX/ZV/YokJksb6q2lubWu6UbvPQ20p542/sFIll1nl8JnCyK9oBaOcCWXwvA==
 
 optionator@^0.8.3:
   version "0.8.3"
@@ -2850,6 +2865,14 @@ rollup-plugin-livereload@1.1.0:
   integrity sha512-A7/aMw97SUFVJRqD6tVSDkDYHTQY3wZFUVjpyuvq6GV1eR4tCcQtgUDyf6q3eQWff6K2rOfhhO3QxUPp9YN5PA==
   dependencies:
     livereload "0.8.0 || ^0.8.2"
+
+rollup-plugin-server@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-server/-/rollup-plugin-server-0.7.0.tgz#cac777a4d6a33e86fcb2330c42bc32393960f0a2"
+  integrity sha1-ysd3pNajPob8sjMMQrwyOTlg8KI=
+  dependencies:
+    mime "^1.3.6"
+    opener "^1.4.3"
 
 rollup-plugin-terser@5.3.0:
   version "5.3.0"
