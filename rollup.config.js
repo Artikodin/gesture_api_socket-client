@@ -34,15 +34,15 @@ export default {
     commonjs(),
     serve({
       contentBase: ['dist', 'public'],
-      port: 3000,
+      port: 3001,
       ssl: true,
-      ssl_key: fs.readFileSync('./certificat/server.key'),
-      ssl_cert: fs.readFileSync('./certificat/server.crt')
+      ssl_key: fs.readFileSync('./certificate2/server.key'),
+      ssl_cert: fs.readFileSync('./certificate2/server.crt')
     }),
     livereload({
       https: {
-        key: fs.readFileSync('./certificat/server.key'),
-        cert: fs.readFileSync('./certificat/server.crt')
+        key: fs.readFileSync('./certificate2/server.key'),
+        cert: fs.readFileSync('./certificate2/server.crt')
       },
       watch: ['dist', 'public']
     }),
