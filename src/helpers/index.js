@@ -1,0 +1,1 @@
+export { initSensor } from './sensors';
