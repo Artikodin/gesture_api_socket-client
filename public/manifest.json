@@ -1,0 +1,8 @@
+{
+  "name": "gesture api",
+  "short_name": "gesture_api",
+  "start_url": "https://192.168.0.40:3001/manifest.json",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [{ "src": "/icon.png", "type": "image/png", "sizes": "256x256" }]
+}
