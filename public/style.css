@@ -1,6 +1,18 @@
-#square {
-  background-color: red;
+#noSleep {
   height: 100px;
   width: 100px;
   position: absolute;
+}
+
+#noSleep>span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.noSleep {
+  background-color: red;
+}
+
+.sleep {
+  background-color: green;
 }

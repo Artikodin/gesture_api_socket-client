@@ -1,5 +1,6 @@
 import { AbsoluteOrientationSensor } from 'motion-sensors-polyfill';
 import { initSensor } from './helpers';
+import './helpers/noSleep';
 
 const orientationSensor = new AbsoluteOrientationSensor({
   frequency: 60,
