@@ -37,7 +37,7 @@ export const initSensor = sensor => {
         }
       });
     } else {
-      console.log('Too old iOS device');
+      console.log('Too old iOS device or no permissions to use the sensor.');
     }
   }
 };
