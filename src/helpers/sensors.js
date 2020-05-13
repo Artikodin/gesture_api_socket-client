@@ -6,16 +6,38 @@
  * @param {Object} sensor - The sensor you want to init
  *
  */
-export const initSensor = sensor =>
-  Promise.all([
-    navigator.permissions.query({ name: 'accelerometer' }),
-    navigator.permissions.query({ name: 'magnetometer' }),
-    navigator.permissions.query({ name: 'gyroscope' })
-  ]).then(results => {
-    if (results.every(result => result.state === 'granted')) {
-      sensor.start();
-      sensor.onerror = event => console.log(event.error.name, event.error.message);
+export const initSensor = sensor => {
+  if (navigator.permissions != null) {
+    Promise.all([
+      navigator.permissions.query({ name: 'accelerometer' }),
+      navigator.permissions.query({ name: 'magnetometer' }),
+      navigator.permissions.query({ name: 'gyroscope' })
+    ]).then(results => {
+      if (results.every(result => result.state === 'granted')) {
+        sensor.start();
+        sensor.onerror = event => console.log(event.error.name, event.error.message);
+      } else {
+        console.log('No permissions to use the sensor.');
+      }
+    });
+  } else {
+    if (
+      typeof DeviceMotionEvent.requestPermission === 'function' &&
+      typeof DeviceOrientationEvent.requestPermission == 'function'
+    ) {
+      Promise.all([
+        DeviceMotionEvent.requestPermission(),
+        DeviceOrientationEvent.requestPermission()
+      ]).then(results => {
+        if (results.every(result => result === 'granted')) {
+          sensor.start();
+          sensor.onerror = event => console.log(event.error.name, event.error.message);
+        } else {
+          console.log('No permissions to use the sensor.');
+        }
+      });
     } else {
-      console.log('No permissions to use the sensor.');
+      console.log('Too old iOS device or no permissions to use the sensor.');
     }
-  });
+  }
+};
