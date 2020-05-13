@@ -1,10 +1,10 @@
 #noSleep {
   height: 100px;
-  width: 100px;
-  position: absolute;
+  width: 100%;
+  border: 3px solid;
 }
 
-#noSleep>span {
+#noSleep > span {
   font-size: 16px;
   font-weight: 600;
 }
@@ -15,4 +15,21 @@
 
 .sleep {
   background-color: green;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.touchDetection {
+  background-color: grey;
+  width: 100%;
+  flex: 1 1 0;
 }
