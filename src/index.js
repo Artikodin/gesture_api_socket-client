@@ -1,8 +1,8 @@
-import { AbsoluteOrientationSensor } from 'motion-sensors-polyfill';
+import { RelativeOrientationSensor } from 'motion-sensors-polyfill';
 import { initSensor } from './helpers';
 import './helpers/noSleep';
 
-const orientationSensor = new AbsoluteOrientationSensor({
+const orientationSensor = new RelativeOrientationSensor({
   frequency: 60,
   referenceFrame: 'device'
 });
@@ -17,6 +17,7 @@ if (
 } else {
   initialize();
 }
+const formatTo10th = number => parseFloat(number.toFixed(3));
 
 function initialize() {
   document.querySelector('#square').removeEventListener('touchstart', initialize);
