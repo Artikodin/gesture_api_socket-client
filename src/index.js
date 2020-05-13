@@ -1,4 +1,4 @@
-import { RelativeOrientationSensor } from 'motion-sensors-polyfill';
+import { RelativeOrientationSensor, LinearAccelerationSensor } from 'motion-sensors-polyfill';
 import { initSensor } from './helpers';
 import './helpers/noSleep';
 
@@ -16,31 +16,63 @@ const orientationSensor = new RelativeOrientationSensor({
   referenceFrame: 'device'
 });
 
+const accelerationSensor = new LinearAccelerationSensor({
+  frequency: 60,
+  referenceFrame: 'device'
+});
+
 const socket = new WebSocket('wss://192.168.0.40:8081');
+
+const noSleepButton = document.querySelector('#noSleep');
 
 if (
   typeof DeviceMotionEvent.requestPermission === 'function' &&
   typeof DeviceOrientationEvent.requestPermission == 'function'
 ) {
-  document.querySelector('#square').addEventListener('click', initialize);
+  noSleepButton.addEventListener('click', initSocket);
 } else {
-  initialize();
+  initSocket();
 }
-const formatTo10th = number => parseFloat(number.toFixed(3));
+const formatTo100th = number => parseFloat(number.toFixed(3));
 
-function initialize() {
-  document.querySelector('#square').removeEventListener('touchstart', initialize);
-  initSensor(orientationSensor);
+function initSocket() {
+  noSleepButton.removeEventListener('touchstart', initSocket);
+  // initSensor(orientationSensor);
+  initSensor(accelerationSensor);
 
   socket.onopen = () => {
     socket.send({ guid });
-    orientationSensor.onreading = () => {
-      const [x, y, z, w] = orientationSensor.quaternion;
-      console.log({ x, y, z, w });
-      socket.send(JSON.stringify({ x, y, z, w }));
+
+    accelerationSensor.onreading = () => {
+      const { x, y, z } = accelerationSensor;
+      console.log({ x, y, z });
+      socket.send(
+        JSON.stringify({
+          x: formatTo100th(x),
+          y: formatTo100th(y),
+          z: formatTo100th(z)
+        })
+      );
     };
+    // orientationSensor.onreading = () => {
+    //   const [x, y, z, w] = orientationSensor.quaternion;
+    //   console.log({
+    //     x: formatTo100th(x),
+    //     y: formatTo100th(y),
+    //     z: formatTo100th(z),
+    //     w: formatTo100th(w)
+    //   });
+    //   socket.send(
+    //     JSON.stringify({
+    //       x: formatTo100th(x),
+    //       y: formatTo100th(y),
+    //       z: formatTo100th(z),
+    //       w: formatTo100th(w)
+    //     })
+    //   );
+    // };
     socket.onmessage = event => {
-      let data = event.data;
+      const { data } = event;
       console.log(data);
     };
   };
