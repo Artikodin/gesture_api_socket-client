@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title>Gesture socket client</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="manifest" href="manifest.json">
@@ -10,6 +10,11 @@
   <body>
 
     <button type="button" id="noSleep" class="noSleep">Avoid screen lock : <span>disabled</span></button>
+    <div class="sensorContainer">
+      <div id="gyroscope">gyroscope</div>
+      <div id="accelerometer">accelerometer</div>
+      <div id="swipe">swipe</div>
+    </div>
     <div id="touchDetection" class="touchDetection"></div>
   </body>
   <script type="text/javascript" src="bundle.js"></script>

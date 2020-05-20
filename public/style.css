@@ -33,3 +33,26 @@ body {
   width: 100%;
   flex: 1 1 0;
 }
+
+.sensorContainer {
+  height: 50px;
+  width: 100%;
+  display: flex;
+}
+
+.sensorContainer > div {
+  flex: 1 0 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensorContainer > div:not(:last-of-type) {
+  border-right: 1px solid;
+}
+
+.activatedSensor{
+  background-color: green;
+}
+
