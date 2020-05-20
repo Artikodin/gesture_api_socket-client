@@ -2,7 +2,7 @@ import NoSleep from 'nosleep.js';
 
 const noSleep = new NoSleep();
 
-const noSleepButton = document.querySelector('#noSleep');
+export const noSleepButton = document.querySelector('#noSleep');
 const enabledLabel = document.querySelector('#noSleep>span');
 
 // Enable wake lock.
